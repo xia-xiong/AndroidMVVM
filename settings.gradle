@@ -1,2 +1,4 @@
 include ':app'
+include ':libs_common'
+
 rootProject.name = "My Application"

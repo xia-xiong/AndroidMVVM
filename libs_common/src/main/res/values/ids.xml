@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="clickLastTime" type="id" />
+    <item name="clickDelay" type="id" />
+    <item name="itemClickLastTime" type="id" />
+    <item name="itemClickDelay" type="id" />
+</resources>

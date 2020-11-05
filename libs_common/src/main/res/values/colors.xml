@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="colorPrimary">#4fadf6</color>
+    <!--start 列表- ListView-->
+    <color name="listview_line_1">#DDE4E7</color> <!-- 列表－分割线－1 ：层级分割线-->
+
+    <color name="te_text_segment_1">#0D1F2A</color> <!-- 标签－文字颜色－正文1 :深	标题加粗，正文常规-->
+    <color name="translucent">#0000</color>
+
+    <color name="color_aaaaaa">#AAAAAA</color>
+
+    <!--2.0-->
+    <color name="color_7B5CE4">#7B5CE4</color>
+    <color name="color_262834">#262834</color>
+    <color name="color_EAEAEA">#EAEAEA</color>
+    <color name="color_252327">#252327</color>
+    <color name="color_515151">#515151</color>
+    <color name="color_797979">#797979</color>
+    <color name="color_C13333">#C13333</color>
+    <color name="color_F2F2F2">#F2F2F2</color>
+    <color name="color_1F35AB">#1F35AB</color>
+    <color name="color_30045A">#30045A</color>
+    <color name="color_2C00FF">#2C00FF</color>
+    <color name="color_F8F8FA">#F8F8FA</color>
+    <color name="color_F4F4F4">#F4F4F4</color>
+    <color name="color_F8F8F8">#F8F8F8</color>
+    <color name="color_00B42A">#00B42A</color>
+    <color name="color_C3B5F2">#C3B5F2</color>
+    <color name="color_333333">#333333</color>
+    <color name="color_999999">#999999</color>
+    <color name="color_ED7F7F">#ED7F7F</color>
+    <color name="color_DBAD84">#DBAD84</color>
+    <color name="color_4A90E2">#4A90E2</color>
+    <color name="color_BABABA">#BABABA</color>
+    <color name="color_9AC3DD">#9AC3DD</color>
+    <color name="color_CDCDCD">#CDCDCD</color>
+    <color name="color_E6E6E6">#E6E6E6</color>
+    <color name="color_606060">#606060</color>
+    <color name="color_666666">#666666</color>
+    <color name="color_D0021B">#D0021B</color>
+    <color name="color_DCDCDC">#DCDCDC</color>
+    <color name="color_D8D8D8">#D8D8D8</color>
+    <color name="color_242A32">#242A32</color>
+    <color name="color_EDEDED">#EDEDED</color>
+    <color name="color_f5a623">#f5a623</color>
+    <color name="color_E1E2FC">#E1E2FC</color>
+    <color name="color_222222">#222222</color>
+    <color name="color_2800D6">#2800D6</color>
+    <color name="color_68667A">#68667A</color>
+    <color name="color_F5F5F5">#F5F5F5</color>
+    <color name="color_F5F6F7">#F5F6F7</color>
+    <color name="color_F7F7F7">#F7F7F7</color>
+    <color name="color_E7E7E7">#E7E7E7</color>
+    <color name="color_4C4171">#4C4171</color>
+    <color name="color_484848">#484848</color>
+    <color name="color_fb0000">#fb0000</color>
+    <color name="color_4576fe">#4576fe</color>
+    <color name="color_F1F6FF">#F1F6FF</color>
+    <color name="color_B0B0B0">#b0b0b0</color>
+    <color name="color_ACB5BF">#ACB5BF</color>
+    <color name="color_282828">#282828</color>
+    <color name="color_8B97A4">#8B97A4</color>
+    <color name="color_F2F6F9">#F2F6F9</color>
+    <color name="color_ECEDEE">#ECEDEE</color>
+
+    <color name="color_ED3B2E">#ED3B2E</color>
+    <color name="color_979797">#979797</color>
+
+    <color name="transparent">#00000000</color>
+    <color name="black_translucent80">#BB000000</color>
+    <color name="color_FF5562">#FF5562</color>
+    <color name="color_4DD8D8D8">#4DD8D8D8</color>
+    <!--白色透明度20-->
+    <color name="color_CCFFFFFF">#CCFFFFFF</color>
+    <!--黑色透明度90-->
+    <color name="color_1A000000">#1A000000</color>
+    <!--黑色透明度95-->
+    <color name="color_0D000000">#0D000000</color>
+    <!--透明度69-->
+    <color name="color_4FFFFFFF">#4FFFFFFF</color>
+    <!--透明度50-->
+    <color name="color_80FFFFFF">#80FFFFFF</color>
+    <!--透明度75-->
+    <color name="color_40F2F6F9">#40F2F6F9</color>
+    <!--不透明度85 D9-->
+    <color name="color_D9242A32">#D9242A32</color>
+    <color name="color_80F2F6F9">#80F2F6F9</color>
+    <color name="color_33F2F6F9">#33F2F6F9</color>
+    <!--白色透明度60-->
+    <color name="color_99FFFFFF">#99FFFFFF</color>
+    <color name="color_EAF0F4">#EAF0F4</color>
+    <color name="color_9598A2">#9598A2</color>
+    <color name="color_323643">#323643</color>
+    <color name="color_362B22">#362B22</color>
+    <color name="color_34C067">#34C067</color>
+    <color name="color_A6998D">#A6998D</color>
+    <color name="color_E93131">#E93131</color>
+    <color name="color_FF5C00">#FF5C00</color>
+    <color name="color_black_alpha29">#B5000000</color>
+</resources>

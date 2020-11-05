@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="44dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_tab_name"
+        android:layout_width="match_parent"
+        android:layout_height="39dp"
+        android:gravity="center"
+        android:singleLine="true"
+        android:textColor="@color/home_tab_color"
+        android:textSize="15sp" />
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="14dp"
+        android:layout_height="3dp"
+        android:paddingStart="3dp"
+        android:tint="@color/color_E93131"
+        android:src="@drawable/tab_sel"
+        android:scaleType="fitXY"
+        android:layout_gravity="bottom|center_horizontal" />
+
+<!--    android:src="@drawable/tab_sel"-->
+<!--    <com.live.common.component.view.ShapeView-->
+<!--        android:id="@+id/image"-->
+<!--        android:layout_width="14dp"-->
+<!--        android:layout_height="4dp"-->
+<!--        android:layout_alignParentBottom="true"-->
+<!--        android:layout_centerHorizontal="true"-->
+<!--        android:layout_gravity="bottom|center_horizontal"-->
+<!--        app:sv_cornerRadius="2dp"-->
+<!--        app:sv_fillColor="@color/tab_sv_bottom_color" />-->
+</LinearLayout>
