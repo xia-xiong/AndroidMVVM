@@ -149,13 +149,4 @@ public class ScreenUtils {
         return pm.isScreenOn();
     }
 
-    /**
-     * 获取dimens定义的大小
-     *
-     * @param dimensionId
-     * @return
-     */
-    public static int getPixelById(int dimensionId) {
-        return BaseApplication.getInstance().getResources().getDimensionPixelSize(dimensionId);
-    }
 }

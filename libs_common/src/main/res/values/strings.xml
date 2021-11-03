@@ -1,4 +1,5 @@
 <resources>
+    <string name="network_unavailable_tip">网络连接不可用,请检查网络设置!</string>
     <string name="customactivityoncrash_error_activity_error_occurred_explanation">发生意外错误。\n抱歉，给您带来不便。</string>
     <string name="customactivityoncrash_error_activity_restart_app">重新启动</string>
     <string name="customactivityoncrash_error_activity_close_app">关闭程序</string>

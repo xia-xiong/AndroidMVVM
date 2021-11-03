@@ -26,6 +26,10 @@
             <enum name="right" value="2" />
             <enum name="bottom" value="3" />
         </attr>
+        <attr name="sv_gravity" format="enum">
+            <enum name="center" value="0" />
+            <enum name="start" value="1" />
+        </attr>
         <attr name="sv_startColor" format="color" />
         <attr name="sv_endColor" format="color" />
         <attr name="sv_orientation" format="enum">
@@ -34,9 +38,8 @@
         </attr>
         <attr name="sv_is_center" format="boolean"/>
     </declare-styleable>
-
     <!--自定义shape group-->
-    <declare-styleable name="shapeViewGroup">
+    <declare-styleable name="ShapeConstraintLayout">
         <!--shape模式-->
         <attr name="svg_shapeMode" format="enum">
             <enum name="rectangle" value="0" />
@@ -70,5 +73,22 @@
         </attr>
         <!--是否带有阴影-->
         <attr name="svg_withElevation" format="boolean" />
+    </declare-styleable>
+    <declare-styleable name="PrettyImageView">
+        <attr name="shape_type">
+            <enum name="SHAPE_CIRCLE" value="0" />
+            <enum name="SHAPE_ROUND" value="1" />
+        </attr>
+        <attr name="border_width" format="dimension" />
+        <attr name="border_color" format="color" />
+        <attr name="left_top" format="dimension" />
+        <attr name="right_top" format="dimension" />
+        <attr name="right_bottom" format="dimension" />
+        <attr name="left_bottom" format="dimension" />
+        <attr name="corner_radius" format="dimension" />
+        <attr name="show_border" format="boolean" />
+        <attr name="show_circle_dot" format="boolean" />
+        <attr name="circle_dot_color" format="color" />
+        <attr name="circle_dot_radius" format="dimension" />
     </declare-styleable>
 </resources>

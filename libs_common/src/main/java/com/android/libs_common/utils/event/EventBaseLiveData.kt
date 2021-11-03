@@ -1,4 +1,4 @@
-package com.live.common.utils.event
+package com.android.libs_common.utils.event
 
 import android.annotation.SuppressLint
 import androidx.annotation.MainThread

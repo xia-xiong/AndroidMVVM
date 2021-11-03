@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.android.libs_common">
     <application>
         <activity
@@ -11,5 +12,16 @@
             android:authorities="${applicationId}.customactivityoncrashinitprovider"
             android:exported="false"
             android:initOrder="101" />
+        <provider
+            android:name=".utils.WeChatShareProvider"
+            android:authorities="${applicationId}.wechatShare"
+            android:exported="false"
+            android:grantUriPermissions="true"
+            tools:replace="name,authorities,exported,grantUriPermissions">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/wechat_share_provider_paths"
+                tools:replace="name,resource" />
+        </provider>
     </application>
 </manifest>
