@@ -1,4 +1,4 @@
-package com.android.mvvm.ui.adapter
+package com.android.mvvm.widget
 
 import android.view.View
 import android.view.ViewGroup

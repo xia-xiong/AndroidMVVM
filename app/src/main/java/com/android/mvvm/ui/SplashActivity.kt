@@ -1,4 +1,4 @@
-package com.android.mvvm.ui.activity
+package com.android.mvvm.ui
 
 import android.content.Context
 import android.content.SharedPreferences
@@ -14,8 +14,7 @@ import com.android.libs_common.ext.startActivity
 import com.android.libs_common.utils.Preference
 import com.android.libs_common.utils.SharedPreferenceUtils
 import com.android.mvvm.R
-import com.android.mvvm.ui.MainActivity
-import com.android.mvvm.ui.adapter.GuidePageAdapter
+import com.android.mvvm.widget.GuidePageAdapter
 import com.android.mvvm.widget.ScaleCircleNavigator
 import com.live.common.extension.setSingleClickListener
 import kotlinx.android.synthetic.main.activity_splash.*
