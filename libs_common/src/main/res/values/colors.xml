@@ -2,6 +2,7 @@
 <resources>
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
+    <color name="appBg">#cccccc</color>
     <color name="colorPrimary">#4fadf6</color>
     <color name="dividerLineColor">#f9fafb</color>
     <color name="colorAccent">#03DAC5</color>
