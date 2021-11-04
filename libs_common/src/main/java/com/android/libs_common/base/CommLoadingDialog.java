@@ -26,10 +26,7 @@ public class CommLoadingDialog extends Dialog {
         super(context,R.style.dialog);
     }
     private  TextView titleView;
-    public CommLoadingDialog(@NonNull Context context,String title) {
-        super(context,R.style.dialog);
-        this.title = title;
-    }
+
     private LottieAnimationView animationView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,17 +35,12 @@ public class CommLoadingDialog extends Dialog {
         getWindow().setBackgroundDrawable(new ColorDrawable(0));
         setCanceledOnTouchOutside(false);
         View rootView = LayoutInflater.from(getContext()).inflate(R.layout.dialog_loading_view, null);
-        titleView=   ((TextView) (rootView.findViewById(R.id.title)));
+        titleView= rootView.findViewById(R.id.title);
         setContentView(rootView);
-
-        if(StringUtils.isNotBlank(title)) {
-            titleView.setText(title);
-        }
-
-        animationView = findViewById(R.id.animation_view);
-        animationView.setAnimation("shuaxin_white.json");
-        animationView.loop(true);
-        animationView.playAnimation();
+//        animationView = findViewById(R.id.animation_view);
+//        animationView.setAnimation("shuaxin_white.json");
+//        animationView.loop(true);
+//        animationView.playAnimation();
     }
 
     @Override

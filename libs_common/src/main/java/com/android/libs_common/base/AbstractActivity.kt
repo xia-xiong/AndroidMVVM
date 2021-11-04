@@ -21,7 +21,7 @@ abstract class AbstractActivity<V : ViewDataBinding> : AppCompatActivity(),
     AbstractViewModel.Navigator {
 
     lateinit var mBinding: V
-    private val mDialog by lazy {CommLoadingDialog(this, "加载中...")  }
+    private val mDialog by lazy {CommLoadingDialog(this)  }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {

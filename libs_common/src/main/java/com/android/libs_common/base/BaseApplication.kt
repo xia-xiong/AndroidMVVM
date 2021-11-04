@@ -32,7 +32,7 @@ open class BaseApplication  : Application(){
 
 
     private val mCallbacks: ActivityLifecycleCallbacks = object : ActivityLifecycleCallbacks {
-        override fun onActivityCreated(activity: Activity, savedInstanceState: Bundle) {
+        override fun onActivityCreated(activity: Activity, savedInstanceState: Bundle?) {
             AppManager.getAppManager().addActivity(activity)
         }
 

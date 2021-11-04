@@ -28,7 +28,6 @@ fun <T> AbstractViewModel<AbstractViewModel.Navigator>.request(
         runCatching {
             block()
         }.onSuccess {
-            if (isShowDialog) navigator?.showProgress(loadingMessage)
             runCatching {
                 val  response=  it.await()
                 when (response.code) {

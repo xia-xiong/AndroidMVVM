@@ -14,7 +14,7 @@ class SplashViewModel :AbstractViewModel<AbstractViewModel.Navigator>(){
             AuctionService.getServiceTime()
         }, {
         }, {
-        }, false)
+        }, isShowDialog=true)
     }
 
 }

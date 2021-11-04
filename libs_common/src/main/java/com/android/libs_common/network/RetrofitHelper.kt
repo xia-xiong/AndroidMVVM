@@ -47,7 +47,7 @@ object RetrofitHelper {
         val cache = Cache(cacheFile, HttpConstant.MAX_CACHE_SIZE)
 
         OkHttpClient.Builder()
-            .addInterceptor(httpLoggingInterceptor)
+//            .addInterceptor(httpLoggingInterceptor)
             .addInterceptor(HeaderParamsInterceptor())
             .addInterceptor(CacheInterceptor())
             .cache(cache)  //添加缓存
@@ -55,7 +55,7 @@ object RetrofitHelper {
             .readTimeout(HttpConstant.DEFAULT_TIMEOUT, TimeUnit.SECONDS)
             .writeTimeout(HttpConstant.DEFAULT_TIMEOUT, TimeUnit.SECONDS)
             .retryOnConnectionFailure(true) // 错误重连
-//            .addNetworkInterceptor(httpLoggingInterceptor)
+            .addNetworkInterceptor(httpLoggingInterceptor)
             .build()
     }
 

@@ -22,7 +22,7 @@ abstract class AbstractFragment<V : ViewDataBinding> : Fragment(), AbstractViewM
     protected var isViewInitiated: Boolean = false
 
     lateinit var mBinding: V
-    private val mDialog by lazy { activity?.let { CommLoadingDialog(it, "加载中...") } }
+    private val mDialog by lazy { activity?.let { CommLoadingDialog(it) } }
 
     override fun onCreateView(
         inflater: LayoutInflater,

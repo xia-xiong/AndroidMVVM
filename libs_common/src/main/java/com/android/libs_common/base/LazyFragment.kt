@@ -17,7 +17,7 @@ abstract class LazyFragment<V : ViewDataBinding> : Fragment(), AbstractViewModel
     private var isInit = false
     private var isFirstVisible = true
 
-    private val mDialog by lazy { activity?.let { CommLoadingDialog(it, "加载中...") } }
+    private val mDialog by lazy { activity?.let { CommLoadingDialog(it) } }
 
     lateinit var mBinding: V
 

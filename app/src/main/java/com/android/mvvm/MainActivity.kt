@@ -13,6 +13,7 @@ class MainActivity : AbstractActivity<ActivityMainBinding>() {
     }
 
     override fun init() {
+        mModel.navigator=this
         mModel.getSplashData()
     }
 
