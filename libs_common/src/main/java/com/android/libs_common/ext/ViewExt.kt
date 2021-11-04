@@ -9,6 +9,7 @@ import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Checkable
 import android.widget.ImageView
 import android.widget.TextView
 import com.android.libs_common.R
@@ -243,6 +244,31 @@ fun BaseQuickAdapter<*, *>.noDoubleClickListener(
         view.itemClickDelay = interval
         if (view.itemClickEnable()) {
             action(adapter, view, position)
+        }
+    }
+}
+
+
+// 扩展点击事件属性(重复点击时长)
+var <T : View> T.lastClickTime: Long
+    set(value) = setTag(1766613352, value)
+    get() = getTag(1766613352) as? Long ?: 0
+
+// 重复点击事件绑定
+inline fun <T : View> T.setSingleClickListener(time: Long = 1000, crossinline block: (T) -> Unit) {
+    setOnClickListener {
+        val currentTimeMillis = System.currentTimeMillis()
+        if (currentTimeMillis - lastClickTime > time || this is Checkable) {
+            lastClickTime = currentTimeMillis
+            block(this)
+        }
+    }
+}
+
+inline fun setViewClick(vararg views: View, crossinline block: () -> Unit) {
+    for (it in views) {
+        it.setSingleClickListener {
+            block()
         }
     }
 }

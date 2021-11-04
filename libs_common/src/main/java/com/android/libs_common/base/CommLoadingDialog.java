@@ -46,7 +46,7 @@ public class CommLoadingDialog extends Dialog {
     @Override
     public void dismiss() {
         super.dismiss();
-        animationView.cancelAnimation();
+//        animationView.cancelAnimation();
     }
 
     public void setMessage(@NotNull String mContent) {

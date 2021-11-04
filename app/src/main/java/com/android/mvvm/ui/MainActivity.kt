@@ -1,8 +1,10 @@
-package com.android.mvvm
+package com.android.mvvm.ui
 
 import androidx.activity.viewModels
 import com.android.mvvm.databinding.ActivityMainBinding
 import com.android.libs_common.base.AbstractActivity
+import com.android.mvvm.R
+import com.android.mvvm.SplashViewModel
 
 class MainActivity : AbstractActivity<ActivityMainBinding>() {
 
