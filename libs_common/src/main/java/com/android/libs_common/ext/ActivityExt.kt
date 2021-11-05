@@ -29,12 +29,20 @@ fun AppCompatActivity.replaceFragment(layoutRes: Int, otherFragment: Fragment) {
         .replace(layoutRes, otherFragment)
         .commit()
 }
-
-fun AppCompatActivity.showFragment( resId:Int,fragment:Fragment){
-    supportFragmentManager.transact {
-        add(resId,fragment)
-    }
+fun AppCompatActivity.hideFragment(otherFragment: Fragment) {
+    val fm = supportFragmentManager
+    fm.beginTransaction()
+        .hide(otherFragment)
+        .commit()
 }
+fun AppCompatActivity.removeFragment(otherFragment: Fragment) {
+    val fm = supportFragmentManager
+    fm.beginTransaction()
+        .remove(otherFragment)
+        .commit()
+}
+
+
 fun AppCompatActivity.hideShowFragment(hideFragment: Fragment, showFragment: Fragment) {
     supportFragmentManager.transact {
         hide(hideFragment).show(showFragment)

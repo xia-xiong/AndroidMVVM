@@ -13,6 +13,7 @@ import android.util.DisplayMetrics;
 import android.util.TypedValue;
 import android.view.Display;
 import android.view.View;
+import android.view.WindowManager;
 
 import com.android.libs_common.base.BaseApplication;
 
@@ -35,18 +36,21 @@ public class ScreenUtils {
      * 获得屏幕宽度
      */
     public static int getScreenWidth() {
-        DisplayMetrics dm = getDisplayMetrics();
-        return dm.widthPixels;
+        DisplayMetrics metric = new DisplayMetrics();
+        WindowManager wm = (WindowManager) BaseApplication.application.getSystemService(Context.WINDOW_SERVICE);
+        wm.getDefaultDisplay().getRealMetrics(metric);
+        return metric.widthPixels;
     }
 
     /**
      * 获得屏幕高度
      */
     public static int getScreenHeight() {
-        DisplayMetrics dm = getDisplayMetrics();
-        return dm.heightPixels;
+        DisplayMetrics metric = new DisplayMetrics();
+        WindowManager wm = (WindowManager)  BaseApplication.application.getSystemService(Context.WINDOW_SERVICE);
+        wm.getDefaultDisplay().getRealMetrics(metric);
+        return metric.heightPixels;
     }
-
     /**
      * 将sp值转换为px值，保证文字大小不变
      */
