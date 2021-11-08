@@ -7,7 +7,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.android.libs_common.widget.TitleBarLayout
+        <com.android.libsBase.widget.TitleBarLayout
             android:id="@+id/title_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -77,6 +77,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/line_phone" />
         <View
+            android:id="@+id/code_line"
             android:layout_width="@dimen/dp_0"
             android:layout_height="0.5dp"
             android:background="#A9A9A9"
@@ -84,7 +85,7 @@
             app:layout_constraintEnd_toEndOf="@+id/aet_code"
             app:layout_constraintStart_toStartOf="@+id/aet_code" />
         <androidx.appcompat.widget.AppCompatImageButton
-            android:id="@+id/ibtn_code_clear"
+            android:id="@+id/btn_code_clear"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/dp_0"
             android:background="@null"
@@ -114,6 +115,22 @@
             app:layout_constraintTop_toTopOf="@id/aet_code"
             tools:ignore="UnusedAttribute" />
 
+            <com.android.libsBase.widget.ShapeView
+                android:id="@+id/sv_login"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="80dp"
+                app:layout_constraintTop_toBottomOf="@+id/code_line"
+                android:text="登录"
+                android:textSize="@dimen/text_size_18"
+                app:sv_fillColor="@color/color_1F35AB"
+                app:sv_cornerRadius="25dp"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginStart="50dp"
+                android:layout_marginEnd="50dp"
+                />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

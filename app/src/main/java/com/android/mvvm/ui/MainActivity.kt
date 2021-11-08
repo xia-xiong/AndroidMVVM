@@ -3,15 +3,10 @@ package com.android.mvvm.ui
 import androidx.activity.viewModels
 import androidx.fragment.app.Fragment
 import com.android.mvvm.databinding.ActivityMainBinding
-import com.android.libs_common.base.AbstractActivity
-import com.android.libs_common.ext.hideFragment
-import com.android.libs_common.ext.hideShowFragment
-import com.android.libs_common.ext.removeFragment
-import com.android.libs_common.ext.replaceFragment
+import com.android.libsBase.base.AbstractActivity
 import com.android.mvvm.R
 import com.android.mvvm.ui.home.HomeFragment
 import com.android.mvvm.ui.mine.MineFragment
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.bottomnavigation.LabelVisibilityMode
 import kotlinx.android.synthetic.main.activity_main.*
 

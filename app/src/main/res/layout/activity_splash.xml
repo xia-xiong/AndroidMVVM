@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.android.libs_common.widget.ShapeView
+    <com.android.libsBase.widget.ShapeView
         android:id="@+id/sv_close"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -41,7 +41,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
 
-    <com.android.libs_common.widget.ShapeView
+    <com.android.libsBase.widget.ShapeView
         android:id="@+id/abt_immediately_open"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

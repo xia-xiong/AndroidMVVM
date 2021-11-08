@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.android.libsBase">
+    <application>
+        <activity
+            android:name="com.android.libsBase.crash.DefaultErrorActivity"
+            android:process=":error_activity" />
+
+        <provider
+            android:name="com.android.libsBase.crash.CaocInitProvider"
+            android:authorities="${applicationId}.customactivityoncrashinitprovider"
+            android:exported="false"
+            android:initOrder="101" />
+        <provider
+            android:name="com.android.libsBase.utils.WeChatShareProvider"
+            android:authorities="${applicationId}.wechatShare"
+            android:exported="false"
+            android:grantUriPermissions="true"
+            tools:replace="name,authorities,exported,grantUriPermissions">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/wechat_share_provider_paths"
+                tools:replace="name,resource" />
+        </provider>
+    </application>
+</manifest>

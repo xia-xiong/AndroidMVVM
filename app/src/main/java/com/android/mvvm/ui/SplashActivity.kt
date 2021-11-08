@@ -9,10 +9,10 @@ import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.viewpager.widget.ViewPager
-import com.android.libs_common.constant.PerfConstant
-import com.android.libs_common.ext.startActivity
-import com.android.libs_common.utils.Preference
-import com.android.libs_common.utils.SharedPreferenceUtils
+import com.android.libsBase.constant.PerfConstant
+import com.android.libsBase.ext.startActivity
+import com.android.libsBase.utils.Preference
+import com.android.libsBase.utils.SharedPreferenceUtils
 import com.android.mvvm.R
 import com.android.mvvm.widget.GuidePageAdapter
 import com.android.mvvm.widget.ScaleCircleNavigator

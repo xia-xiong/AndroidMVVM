@@ -1,6 +1,6 @@
 package com.android.mvvm.app
 
-import com.android.libs_common.base.BaseApplication
+import com.android.libsBase.base.BaseApplication
 
 /**
  * @author: 夏雄

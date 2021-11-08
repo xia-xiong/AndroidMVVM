@@ -65,7 +65,7 @@ dependencies {
             }
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 
-    implementation project(':libs_common')
+    implementation project(':libsBase')
 
 //    //6.0动态权限
 ////    implementation "com.tbruyelle.rxpermissions2:rxpermissions:0.9.5@aar"

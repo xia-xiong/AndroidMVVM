@@ -1,7 +1,7 @@
 package com.android.mvvm.ui.home
 
 import androidx.fragment.app.activityViewModels
-import com.android.libs_common.base.AbstractFragment
+import com.android.libsBase.base.AbstractFragment
 import com.android.mvvm.R
 import com.android.mvvm.databinding.FragmentHomeBinding
 import com.android.mvvm.ui.MainViewModel
