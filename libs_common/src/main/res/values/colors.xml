@@ -8,6 +8,7 @@
     <color name="colorAccent">#03DAC5</color>
     <color name="iron">#CCCCCC</color>
     <!--start 列表- ListView-->
+    <color name="color_line">#E6E6E6</color>
     <color name="listview_line_1">#DDE4E7</color> <!-- 列表－分割线－1 ：层级分割线-->
 
     <color name="te_text_segment_1">#0D1F2A</color> <!-- 标签－文字颜色－正文1 :深	标题加粗，正文常规-->

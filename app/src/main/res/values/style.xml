@@ -22,4 +22,8 @@
         <item name="android:windowTranslucentStatus" tools:targetApi="kitkat">false</item>
         <item name="android:windowDrawsSystemBarBackgrounds" tools:targetApi="lollipop">true</item>
     </style>
+    <style name="lineStyle" >
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0.5dp</item>
+    </style>
 </resources>

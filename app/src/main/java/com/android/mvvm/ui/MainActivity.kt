@@ -21,7 +21,6 @@ class MainActivity : AbstractActivity<ActivityMainBinding>() {
         mutableListOf<Fragment>(HomeFragment.getInstance(), MineFragment.getInstance())
 
     private val mModel: MainViewModel by viewModels()
-    private var currentPos = 0
     private var lastPos = 0
     override fun getLayoutId() = R.layout.activity_main
 
