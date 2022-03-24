@@ -5,7 +5,7 @@ import com.android.libsBase.base.BaseApplication
 import com.android.libsBase.constant.HttpConstant
 import com.android.libsBase.network.interceptors.CacheInterceptor
 import com.android.libsBase.network.interceptors.HeaderParamsInterceptor
-import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
+//import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import okhttp3.Cache
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -28,7 +28,7 @@ object RetrofitHelper {
             .client(mOkHttpClient)
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-            .addCallAdapterFactory(CoroutineCallAdapterFactory())
+//            .addCallAdapterFactory(CoroutineCallAdapterFactory())
             .build()
     }
 

@@ -5,7 +5,7 @@ import com.android.libsBase.ext.getString
 import com.android.mvvm.R
 import com.android.mvvm.databinding.ActivityLoginBinding
 import com.android.mvvm.utils.EditTextHelper
-import com.blankj.utilcode.util.KeyboardUtils
+//import com.blankj.utilcode.util.KeyboardUtils
 import com.live.common.extension.gone
 import com.live.common.extension.setSingleClickListener
 import com.live.common.extension.visible
@@ -24,9 +24,10 @@ class LoginActivity : AbstractActivity<ActivityLoginBinding>() {
 
     override fun initListener() {
         super.initListener()
-        EditTextHelper().afterTextChanged(et_phone) {
+
+        EditTextHelper().afterTextChanged(  mBinding.etPhone) {
             if (it.isBlank()) {
-                btn_phone_clear.gone()
+               mBinding.btnPhoneClear.gone()
                 sv_login.isEnabled = false
                 sst_code.isEnabled = false
                 return@afterTextChanged
@@ -48,7 +49,7 @@ class LoginActivity : AbstractActivity<ActivityLoginBinding>() {
                 } else {
                     btn_phone_clear.visible()
                 }
-                KeyboardUtils.showSoftInput(et_phone)
+//                KeyboardUtils.showSoftInput(et_phone)
             } else {
                 btn_phone_clear.gone()
             }
@@ -79,7 +80,7 @@ class LoginActivity : AbstractActivity<ActivityLoginBinding>() {
                     btn_code_clear.visible()
                 }
 
-                KeyboardUtils.showSoftInput(aet_code)
+//                KeyboardUtils.showSoftInput(aet_code)
             } else {
                 btn_code_clear.gone()
             }

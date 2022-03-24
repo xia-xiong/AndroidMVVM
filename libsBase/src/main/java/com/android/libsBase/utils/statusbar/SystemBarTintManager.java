@@ -24,7 +24,6 @@ import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
-import android.os.Build;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
 import android.view.Gravity;
@@ -48,15 +47,13 @@ public class SystemBarTintManager {
         // Android allows a system property to override the presence of the navigation bar.
         // Used by the emulator.
         // See https://github.com/android/platform_frameworks_base/blob/master/policy/src/com/android/internal/policy/impl/PhoneWindowManager.java#L1076
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            try {
-                Class c = Class.forName("android.os.SystemProperties");
-                Method m = c.getDeclaredMethod("get", String.class);
-                m.setAccessible(true);
-                sNavBarOverride = (String) m.invoke(null, "qemu.hw.mainkeys");
-            } catch (Throwable e) {
-                sNavBarOverride = null;
-            }
+        try {
+            Class c = Class.forName("android.os.SystemProperties");
+            Method m = c.getDeclaredMethod("get", String.class);
+            m.setAccessible(true);
+            sNavBarOverride = (String) m.invoke(null, "qemu.hw.mainkeys");
+        } catch (Throwable e) {
+            sNavBarOverride = null;
         }
     }
 
@@ -89,33 +86,31 @@ public class SystemBarTintManager {
         Window win = activity.getWindow();
         ViewGroup decorViewGroup = (ViewGroup) win.getDecorView();
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            // check theme attrs
-            int[] attrs = {android.R.attr.windowTranslucentStatus,
-                    android.R.attr.windowTranslucentNavigation};
-            TypedArray a = activity.obtainStyledAttributes(attrs);
-            try {
-                mStatusBarAvailable = a.getBoolean(0, false);
-                mNavBarAvailable = a.getBoolean(1, false);
-            } finally {
-                a.recycle();
-            }
+        // check theme attrs
+        int[] attrs = {android.R.attr.windowTranslucentStatus,
+                android.R.attr.windowTranslucentNavigation};
+        TypedArray a = activity.obtainStyledAttributes(attrs);
+        try {
+            mStatusBarAvailable = a.getBoolean(0, false);
+            mNavBarAvailable = a.getBoolean(1, false);
+        } finally {
+            a.recycle();
+        }
 
-            // check window flags
-            WindowManager.LayoutParams winParams = win.getAttributes();
-            int bits = WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS;
-            if ((winParams.flags & bits) != 0) {
-                mStatusBarAvailable = true;
-            }
-            bits = WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION;
-            if ((winParams.flags & bits) != 0) {
-                mNavBarAvailable = true;
-            }
+        // check window flags
+        WindowManager.LayoutParams winParams = win.getAttributes();
+        int bits = WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS;
+        if ((winParams.flags & bits) != 0) {
+            mStatusBarAvailable = true;
+        }
+        bits = WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION;
+        if ((winParams.flags & bits) != 0) {
+            mNavBarAvailable = true;
         }
 
         mConfig = new SystemBarConfig(activity, mStatusBarAvailable, mNavBarAvailable);
         // device might not have virtual navigation keys
-        if (!mConfig.hasNavigtionBar()) {
+        if (!mConfig.hasNavigationBar()) {
             mNavBarAvailable = false;
         }
 
@@ -241,7 +236,7 @@ public class SystemBarTintManager {
      */
     @TargetApi(11)
     public void setStatusBarAlpha(float alpha) {
-        if (mStatusBarAvailable && Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+        if (mStatusBarAvailable) {
             mStatusBarTintView.setAlpha(alpha);
         }
     }
@@ -287,7 +282,7 @@ public class SystemBarTintManager {
      */
     @TargetApi(11)
     public void setNavigationBarAlpha(float alpha) {
-        if (mNavBarAvailable && Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+        if (mNavBarAvailable) {
             mNavBarTintView.setAlpha(alpha);
         }
     }
@@ -387,11 +382,9 @@ public class SystemBarTintManager {
         @TargetApi(14)
         private int getActionBarHeight(Context context) {
             int result = 0;
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
-                TypedValue tv = new TypedValue();
-                context.getTheme().resolveAttribute(android.R.attr.actionBarSize, tv, true);
-                result = TypedValue.complexToDimensionPixelSize(tv.data, context.getResources().getDisplayMetrics());
-            }
+            TypedValue tv = new TypedValue();
+            context.getTheme().resolveAttribute(android.R.attr.actionBarSize, tv, true);
+            result = TypedValue.complexToDimensionPixelSize(tv.data, context.getResources().getDisplayMetrics());
             return result;
         }
 
@@ -399,16 +392,14 @@ public class SystemBarTintManager {
         private int getNavigationBarHeight(Context context) {
             Resources res = context.getResources();
             int result = 0;
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
-                if (hasNavBar(context)) {
-                    String key;
-                    if (mInPortrait) {
-                        key = NAV_BAR_HEIGHT_RES_NAME;
-                    } else {
-                        key = NAV_BAR_HEIGHT_LANDSCAPE_RES_NAME;
-                    }
-                    return getInternalDimensionSize(res, key);
+            if (hasNavBar(context)) {
+                String key;
+                if (mInPortrait) {
+                    key = NAV_BAR_HEIGHT_RES_NAME;
+                } else {
+                    key = NAV_BAR_HEIGHT_LANDSCAPE_RES_NAME;
                 }
+                return getInternalDimensionSize(res, key);
             }
             return result;
         }
@@ -417,10 +408,8 @@ public class SystemBarTintManager {
         private int getNavigationBarWidth(Context context) {
             Resources res = context.getResources();
             int result = 0;
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
-                if (hasNavBar(context)) {
-                    return getInternalDimensionSize(res, NAV_BAR_WIDTH_RES_NAME);
-                }
+            if (hasNavBar(context)) {
+                return getInternalDimensionSize(res, NAV_BAR_WIDTH_RES_NAME);
             }
             return result;
         }
@@ -455,12 +444,7 @@ public class SystemBarTintManager {
         @SuppressLint("NewApi")
         private float getSmallestWidthDp(Activity activity) {
             DisplayMetrics metrics = new DisplayMetrics();
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-                activity.getWindowManager().getDefaultDisplay().getRealMetrics(metrics);
-            } else {
-                // TODO this is not correct, but we don't really care pre-kitkat
-                activity.getWindowManager().getDefaultDisplay().getMetrics(metrics);
-            }
+            activity.getWindowManager().getDefaultDisplay().getRealMetrics(metrics);
             float widthDp = metrics.widthPixels / metrics.density;
             float heightDp = metrics.heightPixels / metrics.density;
             return Math.min(widthDp, heightDp);
@@ -500,7 +484,7 @@ public class SystemBarTintManager {
          *
          * @return True if this device uses soft key navigation, False otherwise.
          */
-        public boolean hasNavigtionBar() {
+        public boolean hasNavigationBar() {
             return mHasNavigationBar;
         }
 

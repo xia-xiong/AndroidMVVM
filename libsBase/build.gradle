@@ -1,22 +1,20 @@
-apply plugin: 'com.android.library'
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-kapt'
+plugins{
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+}
 apply from: "$project.rootDir/basic.gradle"
-
-android {
-    defaultConfig {
-        consumerProguardFiles "consumer-rules.pro"
+kapt {
+    arguments {
+        arg("AROUTER_MODULE_NAME", project.getName())
     }
-
 }
 
 dependencies {
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.4.10"
-    implementation "org.jetbrains.anko:anko-commons:0.10.8"
     // Androidx库
     api rootProject.ext.supportLibs
     // coroutines库
-    api rootProject.ext.coroutinesLibs
+//    api rootProject.ext.coroutinesLibs
     // lifecycle库
     api rootProject.ext.lifecycleLibs
     // retrofit库
@@ -28,4 +26,6 @@ dependencies {
     // tool库
     api rootProject.ext.toolsLibs
 
+//    api 'com.alibaba:arouter-api:1.5.0'
+//    kapt 'com.alibaba:arouter-compiler:1.2.2'
 }

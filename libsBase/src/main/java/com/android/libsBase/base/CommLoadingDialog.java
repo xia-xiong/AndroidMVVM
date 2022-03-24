@@ -11,7 +11,6 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 
-import com.airbnb.lottie.LottieAnimationView;
 import com.android.libsBase.R;
 import com.android.libsBase.utils.StringUtils;
 
@@ -27,7 +26,6 @@ public class CommLoadingDialog extends Dialog {
     }
     private  TextView titleView;
 
-    private LottieAnimationView animationView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,16 +35,11 @@ public class CommLoadingDialog extends Dialog {
         View rootView = LayoutInflater.from(getContext()).inflate(R.layout.dialog_loading_view, null);
         titleView= rootView.findViewById(R.id.title);
         setContentView(rootView);
-//        animationView = findViewById(R.id.animation_view);
-//        animationView.setAnimation("shuaxin_white.json");
-//        animationView.loop(true);
-//        animationView.playAnimation();
     }
 
     @Override
     public void dismiss() {
         super.dismiss();
-//        animationView.cancelAnimation();
     }
 
     public void setMessage(@NotNull String mContent) {

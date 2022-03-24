@@ -14,10 +14,10 @@ import com.android.libsBase.ext.startActivity
 import com.android.libsBase.utils.Preference
 import com.android.libsBase.utils.SharedPreferenceUtils
 import com.android.mvvm.R
+import com.android.mvvm.databinding.ActivitySplashBinding
 import com.android.mvvm.widget.GuidePageAdapter
 import com.android.mvvm.widget.ScaleCircleNavigator
 import com.live.common.extension.setSingleClickListener
-import kotlinx.android.synthetic.main.activity_splash.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.delay
@@ -37,13 +37,15 @@ class SplashActivity : AppCompatActivity(), CoroutineScope by MainScope() {
 
     //图片资源的集合
     private lateinit var mViewList: MutableList<View>
+    private lateinit var mBind:ActivitySplashBinding
     private val sharedPreferences: SharedPreferences by lazy {
         getSharedPreferences(PerfConstant.SPLASH_NAME, Context.MODE_PRIVATE)
     }
     private var isLogin: Boolean by Preference(PerfConstant.Perf_LOGIN_KEY, false)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_splash)
+        mBind=ActivitySplashBinding.inflate(layoutInflater)
+        setContentView(mBind.root)
         initData()
         initView()
         initListener()
@@ -64,7 +66,7 @@ class SplashActivity : AppCompatActivity(), CoroutineScope by MainScope() {
     }
 
     private fun initListener() {
-        abt_immediately_open.setSingleClickListener {
+        mBind.abtImmediatelyOpen.setSingleClickListener {
             isSplashGuide = true
             SharedPreferenceUtils.putData(sharedPreferences, PerfConstant.Perf_SPLASH_GUIDE_KEY, isSplashGuide)
             jumpToMain()
@@ -72,7 +74,7 @@ class SplashActivity : AppCompatActivity(), CoroutineScope by MainScope() {
     }
 
     private fun initViewPager() {
-        vp_splash.visibility = View.VISIBLE
+        mBind.vpSplash.visibility = View.VISIBLE
         mImagePositionArray = intArrayOf(
             R.mipmap.ic_splash_one,
             R.mipmap.ic_splash_two,
@@ -99,7 +101,7 @@ class SplashActivity : AppCompatActivity(), CoroutineScope by MainScope() {
             mViewList.add(imageView)
         }
 
-        vp_splash.adapter = GuidePageAdapter(mViewList)
+        mBind.vpSplash.adapter = GuidePageAdapter(mViewList)
     }
 
     private fun initMagicIndicator() {
@@ -112,10 +114,10 @@ class SplashActivity : AppCompatActivity(), CoroutineScope by MainScope() {
                 R.color.colorAccent
             )
         )
-        scaleCircleNavigator.setCircleClickListener { index -> vp_splash.currentItem = index }
-        mi_splash.navigator = scaleCircleNavigator
-        ViewPagerHelper.bind(mi_splash, vp_splash)
-        vp_splash.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
+        scaleCircleNavigator.setCircleClickListener { index -> mBind.vpSplash.currentItem = index }
+        mBind.miSplash.navigator = scaleCircleNavigator
+        ViewPagerHelper.bind( mBind.miSplash,   mBind.vpSplash)
+        mBind.vpSplash.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
             override fun onPageScrollStateChanged(p0: Int) {
             }
 
@@ -125,9 +127,9 @@ class SplashActivity : AppCompatActivity(), CoroutineScope by MainScope() {
             override fun onPageSelected(p0: Int) {
                 // 判断是否是最后一页，若是则显示按钮
                 if (p0 == mImagePositionArray.size - 1) {
-                    abt_immediately_open.visibility = View.VISIBLE;
+                    mBind.abtImmediatelyOpen.visibility = View.VISIBLE;
                 } else {
-                    abt_immediately_open.visibility = View.GONE;
+                    mBind.abtImmediatelyOpen.visibility = View.GONE;
                 }
             }
         })

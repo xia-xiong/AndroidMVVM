@@ -21,17 +21,19 @@ abstract class AbstractActivity<V : ViewDataBinding> : AppCompatActivity(),
     AbstractViewModel.Navigator {
 
     lateinit var mBinding: V
-    private val mDialog by lazy {CommLoadingDialog(this)  }
-
+    private val mDialog by lazy { CommLoadingDialog(this) }
+    var isBlackStatusBarTextColor = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setCustomDensity(this, application)
         mBinding = DataBindingUtil.setContentView(this, getLayoutId())
         mBinding.lifecycleOwner = this
-        StatusBarUtil.setTransparent(this)
-        StatusBarUtil.setLightMode(this)
-        StatusBarUtil.setColor(this, Color.BLUE, 0)
+        StatusBarUtil.setTranslucentStatus(this)
+        if (isBlackStatusBarTextColor) {
+            StatusBarUtil.setRootViewFitsSystemWindows(this, true)
+            StatusBarUtil.setStatusBarTextColorDark(this, true)
+        }
         init()
         getData()
         initListener()
@@ -62,12 +64,15 @@ abstract class AbstractActivity<V : ViewDataBinding> : AppCompatActivity(),
     override fun hideProgress() {
         mDialog.dismiss()
     }
-    override fun showToast(content: String?) {
-        ToastUtils.showShort(content)
+
+    override fun showToast(message: String?) {
+        ToastUtils.showShort(message)
     }
+
     override fun showApiError(code: Int, msg: String?) {
         ToastUtils.showShort(msg)
     }
+
     companion object {
 
         private var sNonCompatDensity: Float = 0.toFloat()
@@ -79,8 +84,8 @@ abstract class AbstractActivity<V : ViewDataBinding> : AppCompatActivity(),
                 sNonCompatDensity = appDisplayMetrics.density
                 sNonCompatScaledDensity = appDisplayMetrics.scaledDensity
                 application.registerComponentCallbacks(object : ComponentCallbacks {
-                    override fun onConfigurationChanged(newConfig: Configuration?) {
-                        if (newConfig != null && newConfig.fontScale > 0) {
+                    override fun onConfigurationChanged(newConfig: Configuration) {
+                        if (newConfig.fontScale > 0) {
                             sNonCompatScaledDensity =
                                 application.resources.displayMetrics.scaledDensity
                         }
@@ -109,11 +114,11 @@ abstract class AbstractActivity<V : ViewDataBinding> : AppCompatActivity(),
 
     override fun getResources(): Resources {
         //屏蔽系统设置字体
-        val resources = super.getResources()
+        super.getResources()
         val config = Configuration()
         config.setToDefaults()
-        resources.updateConfiguration(config, resources.displayMetrics)
-        return resources
+        val context = createConfigurationContext(config)
+        return context.resources
     }
 
 }
