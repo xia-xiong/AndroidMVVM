@@ -1,10 +1,6 @@
 package com.android.libsBase.ext
 
-/**
- * author : fansan
- * Created on 2019/3/8 10:08 AM.
- * description:
- */
+
 import android.content.Context
 import android.view.View
 import androidx.core.content.ContextCompat

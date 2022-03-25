@@ -27,12 +27,12 @@ inline infix fun <T> BooleanExt<T>.otherwise(block: () -> T) =
 
 inline operator fun <T> Boolean.invoke(block: () -> T) = yes(block)
 
-inline fun Boolean?.isTrue(): Boolean {
+fun Boolean?.isTrue(): Boolean {
     return this == true
 }
 
 
-inline fun Boolean?.isFalse(): Boolean {
+fun Boolean?.isFalse(): Boolean {
     return this == false
 }
 

@@ -1,14 +1,9 @@
 package com.android.mvvm.ui.user
 
 import com.android.libsBase.base.AbstractActivity
-import com.android.libsBase.ext.getString
+import com.android.libsBase.ext.*
 import com.android.mvvm.R
 import com.android.mvvm.databinding.ActivityLoginBinding
-import com.android.mvvm.utils.EditTextHelper
-//import com.blankj.utilcode.util.KeyboardUtils
-import com.android.libsBase.ext.gone
-import com.android.libsBase.ext.setSingleClickListener
-import com.android.libsBase.ext.visible
 import kotlinx.android.synthetic.main.activity_login.*
 
 /**
@@ -24,10 +19,9 @@ class LoginActivity : AbstractActivity<ActivityLoginBinding>() {
 
     override fun initListener() {
         super.initListener()
-
-        EditTextHelper().afterTextChanged(  mBinding.etPhone) {
+        mBinding.etPhone.afterTextChanged {
             if (it.isBlank()) {
-               mBinding.btnPhoneClear.gone()
+                mBinding.btnPhoneClear.gone()
                 sv_login.isEnabled = false
                 sst_code.isEnabled = false
                 return@afterTextChanged
@@ -41,8 +35,7 @@ class LoginActivity : AbstractActivity<ActivityLoginBinding>() {
             }
             sv_login.isEnabled = true
         }
-
-        EditTextHelper().onFocusChange(et_phone) {
+        mBinding.etPhone.onFocusChange {
             if (it) {
                 if (et_phone.getString().isBlank()) {
                     btn_phone_clear.gone()
@@ -54,11 +47,12 @@ class LoginActivity : AbstractActivity<ActivityLoginBinding>() {
                 btn_phone_clear.gone()
             }
         }
+
         btn_phone_clear.setSingleClickListener {
             et_phone.setText("")
             btn_phone_clear.gone()
         }
-        EditTextHelper().afterTextChanged(aet_code) {
+        mBinding.aetCode.afterTextChanged {
             if (it.isBlank()) {
                 sv_login.isEnabled = false
                 return@afterTextChanged
@@ -72,7 +66,7 @@ class LoginActivity : AbstractActivity<ActivityLoginBinding>() {
             sv_login.isEnabled = true
         }
 
-        EditTextHelper().onFocusChange(aet_code) {
+        mBinding.aetCode.onFocusChange {
             if (it) {
                 if (aet_code.getString().isBlank()) {
                     btn_code_clear.gone()
@@ -85,7 +79,6 @@ class LoginActivity : AbstractActivity<ActivityLoginBinding>() {
                 btn_code_clear.gone()
             }
         }
-
         btn_code_clear.setSingleClickListener {
             aet_code.setText("")
             btn_code_clear.gone()

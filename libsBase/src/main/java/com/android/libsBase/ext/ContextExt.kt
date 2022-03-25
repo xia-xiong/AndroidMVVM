@@ -14,10 +14,7 @@ import android.view.WindowManager
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 
-/**
- * Created by  on 2019-05-10.
- *
- */
+
 //----------toast----------
 fun Context.toast(text: CharSequence, duration: Int = Toast.LENGTH_SHORT) {
     Toast.makeText(this, text, duration).show()
