@@ -7,11 +7,12 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
+import com.android.libsBase.R
 import com.android.libsBase.utils.ToastUtils
 
 /**
  * @author: xiaxiong
- * @date: 2020/11/7
+ * @date: 2022/3/26
  * @description base fragment
  */
 
@@ -56,7 +57,7 @@ abstract class AbstractFragment<V : ViewDataBinding> : Fragment(), AbstractViewM
 
     override fun showProgress(content:String?) {
         val mContent = if (content.isNullOrBlank()) {
-            "获取中..."
+           getString(R.string.loading)
         } else {
             content
         }
@@ -68,8 +69,8 @@ abstract class AbstractFragment<V : ViewDataBinding> : Fragment(), AbstractViewM
         mDialog?.dismiss()
     }
 
-    override fun showToast(content: String?) {
-        ToastUtils.showShort(content)
+    override fun showToast(message: String?) {
+        ToastUtils.showShort(message)
     }
 
 
@@ -77,4 +78,8 @@ abstract class AbstractFragment<V : ViewDataBinding> : Fragment(), AbstractViewM
         ToastUtils.showShort(msg)
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        mDialog?.dismiss()
+    }
 }

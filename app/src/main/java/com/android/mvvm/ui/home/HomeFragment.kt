@@ -22,7 +22,6 @@ class HomeFragment : AbstractFragment<FragmentHomeBinding>() {
     }
 
     override fun init() {
-
     }
 
 }

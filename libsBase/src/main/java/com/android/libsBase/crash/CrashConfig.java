@@ -23,13 +23,15 @@ import androidx.annotation.IntDef;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.android.libsBase.BuildConfig;
+
 import java.io.Serializable;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.reflect.Modifier;
 
 
-public class CaocConfig implements Serializable {
+public class CrashConfig implements Serializable {
 
     @IntDef({BACKGROUND_MODE_CRASH, BACKGROUND_MODE_SHOW_CUSTOM, BACKGROUND_MODE_SILENT})
     @Retention(RetentionPolicy.SOURCE)
@@ -42,7 +44,7 @@ public class CaocConfig implements Serializable {
     public static final int BACKGROUND_MODE_CRASH = 2;
 
     private int backgroundMode = BACKGROUND_MODE_SHOW_CUSTOM;
-    private boolean enabled = false;
+    private boolean enabled = BuildConfig.DEBUG;
     private boolean showErrorDetails = true;
     private boolean showRestartButton = true;
     private boolean trackActivities = false;
@@ -139,16 +141,16 @@ public class CaocConfig implements Serializable {
     }
 
     public static class Builder {
-        private CaocConfig config;
+        private CrashConfig config;
 
         @NonNull
         public static Builder create() {
             Builder builder = new Builder();
-            CaocConfig currentConfig = CustomActivityOnCrash.getConfig();
+            CrashConfig currentConfig = CustomActivityOnCrash.getConfig();
 
-            CaocConfig config = new CaocConfig();
+            CrashConfig config = new CrashConfig();
             config.backgroundMode = currentConfig.backgroundMode;
-            config.enabled = currentConfig.enabled;
+            config.enabled = BuildConfig.DEBUG;
             config.showErrorDetails = currentConfig.showErrorDetails;
             config.showRestartButton = currentConfig.showRestartButton;
             config.trackActivities = currentConfig.trackActivities;
@@ -288,7 +290,7 @@ public class CaocConfig implements Serializable {
         }
 
         @NonNull
-        public CaocConfig get() {
+        public CrashConfig get() {
             return config;
         }
 

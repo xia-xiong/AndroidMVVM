@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="44dp"
     android:orientation="vertical">
@@ -7,30 +8,21 @@
     <TextView
         android:id="@+id/tv_tab_name"
         android:layout_width="match_parent"
-        android:layout_height="39dp"
+        android:layout_height="@dimen/dp_40"
         android:gravity="center"
         android:singleLine="true"
         android:textColor="@color/home_tab_color"
-        android:textSize="15sp" />
+        android:textSize="@dimen/sp_14" />
 
     <ImageView
         android:id="@+id/image"
-        android:layout_width="14dp"
-        android:layout_height="3dp"
-        android:paddingStart="3dp"
-        android:tint="@color/color_E93131"
+        android:layout_width="@dimen/dp_14"
+        android:layout_height="@dimen/dp_3"
+        android:paddingStart="@dimen/dp_3"
+        android:tint="@color/color_F5F5F5"
         android:src="@drawable/tab_sel"
         android:scaleType="fitXY"
-        android:layout_gravity="bottom|center_horizontal" />
+        android:layout_gravity="bottom|center_horizontal"
+        tools:ignore="ContentDescription,RtlSymmetry,UseAppTint" />
 
-<!--    android:src="@drawable/tab_sel"-->
-<!--    <com.live.common.component.view.ShapeView-->
-<!--        android:id="@+id/image"-->
-<!--        android:layout_width="14dp"-->
-<!--        android:layout_height="4dp"-->
-<!--        android:layout_alignParentBottom="true"-->
-<!--        android:layout_centerHorizontal="true"-->
-<!--        android:layout_gravity="bottom|center_horizontal"-->
-<!--        app:sv_cornerRadius="2dp"-->
-<!--        app:sv_fillColor="@color/tab_sv_bottom_color" />-->
 </LinearLayout>

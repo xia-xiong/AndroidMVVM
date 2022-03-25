@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
+import com.android.libsBase.R
 import com.android.libsBase.ext.yes
 import com.android.libsBase.utils.ToastUtils
 
@@ -24,7 +25,6 @@ abstract class LazyFragment<V : ViewDataBinding> : Fragment(), AbstractViewModel
     override fun setUserVisibleHint(isVisibleToUser: Boolean) {
         super.setUserVisibleHint(isVisibleToUser)
         (isVisibleToUser && isInit && isFirstVisible).yes {
-
             getData()
         }
     }
@@ -61,9 +61,9 @@ abstract class LazyFragment<V : ViewDataBinding> : Fragment(), AbstractViewModel
 
     open fun initObserve() {}
 
-    override fun showProgress(content:String?) {
+    override fun showProgress(content: String?) {
         val mContent = if (content.isNullOrBlank()) {
-            "获取中..."
+            getString(R.string.loading)
         } else {
             content
         }
@@ -82,5 +82,10 @@ abstract class LazyFragment<V : ViewDataBinding> : Fragment(), AbstractViewModel
 
     override fun showApiError(code: Int, msg: String?) {
         ToastUtils.showShort(msg)
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        mDialog?.dismiss()
     }
 }

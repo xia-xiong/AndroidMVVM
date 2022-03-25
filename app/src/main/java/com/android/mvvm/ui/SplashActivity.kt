@@ -17,7 +17,7 @@ import com.android.mvvm.R
 import com.android.mvvm.databinding.ActivitySplashBinding
 import com.android.mvvm.widget.GuidePageAdapter
 import com.android.mvvm.widget.ScaleCircleNavigator
-import com.live.common.extension.setSingleClickListener
+import com.android.libsBase.ext.setSingleClickListener
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.delay
@@ -107,7 +107,7 @@ class SplashActivity : AppCompatActivity(), CoroutineScope by MainScope() {
     private fun initMagicIndicator() {
         val scaleCircleNavigator = ScaleCircleNavigator(this)
         scaleCircleNavigator.setCircleCount(mViewList.size)
-        scaleCircleNavigator.setNormalCircleColor(ContextCompat.getColor(this, R.color.iron))
+        scaleCircleNavigator.setNormalCircleColor(ContextCompat.getColor(this, R.color.color_iron))
         scaleCircleNavigator.setSelectedCircleColor(
             ContextCompat.getColor(
                 this,

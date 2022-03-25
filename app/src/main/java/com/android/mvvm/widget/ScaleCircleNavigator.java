@@ -20,29 +20,7 @@ import net.lucode.hackware.magicindicator.buildins.UIUtil;
 import java.util.ArrayList;
 import java.util.List;
 
-//                       _oo0oo_
-//                      o8888888o
-//                      88" . "88
-//                      (| -_- |)
-//                      0\  =  /0
-//                    ___/`---'\___
-//                  .' \\|     |// '.
-//                 / \\|||  :  |||// \
-//                / _||||| -:- |||||- \
-//               |   | \\\  -  /// |   |
-//               | \_|  ''\---/''  |_/ |
-//               \  .-\__  '-'  ___/-. /
-//             ___'. .'  /--.--\  `. .'___
-//          ."" '<  `.___\_<|>_/___.' >' "".
-//         | | :  `- \`.;`\ _ /`;.`/ - ` : | |
-//         \  \ `_.   \_ __\ /__ _/   .-` /  /
-//     =====`-.____`.___ \_____/___.-`___.-'=====
-//                       `=---='
-//
-//
-//     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-//
-//               佛祖保佑         永无BUG
+
 
 /**
  * 类似CircleIndicator的效果
@@ -56,9 +34,9 @@ public class ScaleCircleNavigator extends View implements IPagerNavigator, Navig
     private int mCircleSpacing;
     private int mCircleCount;
 
-    private Paint mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-    private List<PointF> mCirclePoints = new ArrayList<PointF>();
-    private SparseArray<Float> mCircleRadiusArray = new SparseArray<Float>();
+    private final Paint mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+    private final List<PointF> mCirclePoints = new ArrayList<>();
+    private final SparseArray<Float> mCircleRadiusArray = new SparseArray<>();
 
     // 事件回调
     private boolean mTouchable;
@@ -68,7 +46,7 @@ public class ScaleCircleNavigator extends View implements IPagerNavigator, Navig
     private int mTouchSlop;
 
     private boolean         mFollowTouch       = true;    // 是否跟随手指滑动
-    private NavigatorHelper mNavigatorHelper   = new NavigatorHelper();
+    private final NavigatorHelper mNavigatorHelper   = new NavigatorHelper();
     private Interpolator    mStartInterpolator = new LinearInterpolator();
 
     public ScaleCircleNavigator(Context context) {

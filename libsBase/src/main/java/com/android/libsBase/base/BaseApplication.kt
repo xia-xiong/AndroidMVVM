@@ -5,6 +5,7 @@ import android.app.Application
 import android.content.Context
 import android.os.Bundle
 import androidx.multidex.MultiDex
+import com.alibaba.android.arouter.launcher.ARouter
 import com.android.libsBase.BuildConfig
 import com.android.libsBase.utils.Utils
 
@@ -28,11 +29,11 @@ open class BaseApplication  : Application(){
         application = this
         //注册监听每个activity的生命周期,便于堆栈式管理
         Utils.init(this)
-//        if (BuildConfig.DEBUG) {           // 这两行必须写在init之前，否则这些配置在init过程中将无效
-//            ARouter.openLog() // 打印日志
-//            ARouter.openDebug() // 开启调试模式(如果在InstantRun模式下运行，必须开启调试模式！线上版本需要关闭,否则有安全风险)
-//        }
-//        ARouter.init(this) // 尽可能早，推荐在Application中初始化
+        if (BuildConfig.DEBUG) {           // 这两行必须写在init之前，否则这些配置在init过程中将无效
+            ARouter.openLog() // 打印日志
+            ARouter.openDebug() // 开启调试模式(如果在InstantRun模式下运行，必须开启调试模式！线上版本需要关闭,否则有安全风险)
+        }
+        ARouter.init(this) // 尽可能早，推荐在Application中初始化
 
         registerActivityLifecycleCallbacks(mCallbacks)
     }

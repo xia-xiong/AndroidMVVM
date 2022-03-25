@@ -210,7 +210,7 @@ public class StatusBarUtil {
             } else {
 //                ((Activity) context).getWindow().getDecorView().setSystemUiVisibility(View
 //                        .SYSTEM_UI_FLAG_VISIBLE);
-                setStatusBarColor(context,  BaseApplication.application.getResources().getColor(R.color.translucent));
+                setStatusBarColor(context,  BaseApplication.application.getResources().getColor(R.color.transparent));
 
             }
         } else {

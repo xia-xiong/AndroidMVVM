@@ -1,9 +1,10 @@
-package com.android.mvvm.widget;
+package com.android.libsBase.widget;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.os.Handler;
+import android.os.Looper;
 import android.os.Message;
 import android.util.AttributeSet;
 
@@ -11,16 +12,13 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatTextView;
 
 
-import com.android.mvvm.R;
+import com.android.libsBase.R;
 
 import java.util.Timer;
 import java.util.TimerTask;
 
 /**
- * @author: Lance
  * @description: 发送短信验证码倒计时的textview
- * @date: 2020/3/3 17:30
- * @version: 1.0
  */
 public class SendCodeTextView extends AppCompatTextView {
 
@@ -32,8 +30,8 @@ public class SendCodeTextView extends AppCompatTextView {
     TimerTask timerTask;
     Timer timer;
 
-    @SuppressLint({"HandlerLeak", "SetTextI18n"})
-    Handler mHandler = new Handler() {
+    Handler mHandler = new Handler(Looper.getMainLooper()) {
+        @SuppressLint("SetTextI18n")
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);

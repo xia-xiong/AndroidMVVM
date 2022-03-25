@@ -10,7 +10,6 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 
 import com.android.libsBase.R;
-import com.android.libsBase.base.ITitleBarLayout;
 
 
 public class TitleBarLayout extends LinearLayout implements ITitleBarLayout {

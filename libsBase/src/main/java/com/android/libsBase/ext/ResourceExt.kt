@@ -33,15 +33,15 @@ fun View.stringArray(id: Int) = context.stringArray(id)
 fun View.dimenPx(id: Int) = context.dimenPx(id)
 
 
-fun Fragment.color(id: Int) = context!!.color(id)
+fun Fragment.color(id: Int) = context?.color(id)
 
-fun Fragment.string(id: Int) = context!!.string(id)
+fun Fragment.string(id: Int) = context?.string(id)
 fun Fragment.string(id: Int,formatArgs:Any): String = resources.getString(id).format(formatArgs)
 
-fun Fragment.stringArray(id: Int) = context!!.stringArray(id)
+fun Fragment.stringArray(id: Int) = context?.stringArray(id)
 
 
-fun Fragment.dimenPx(id: Int) = context!!.dimenPx(id)
+fun Fragment.dimenPx(id: Int) = context?.dimenPx(id)
 
 
 fun RecyclerView.ViewHolder.color(id: Int) = itemView.color(id)

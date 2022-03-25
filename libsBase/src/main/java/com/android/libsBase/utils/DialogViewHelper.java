@@ -1,4 +1,4 @@
-package com.android.libsBase.widget;
+package com.android.libsBase.utils;
 
 import android.content.Context;
 import android.util.SparseArray;

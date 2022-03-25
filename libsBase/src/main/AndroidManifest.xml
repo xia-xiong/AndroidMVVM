@@ -13,7 +13,7 @@
             android:process=":error_activity" />
 
         <provider
-            android:name="com.android.libsBase.crash.CaocInitProvider"
+            android:name="com.android.libsBase.crash.CrashInitProvider"
             android:authorities="${applicationId}.customactivityoncrashinitprovider"
             android:exported="false"
             android:initOrder="101" />

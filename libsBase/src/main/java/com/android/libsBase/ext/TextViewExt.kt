@@ -5,10 +5,6 @@ import androidx.core.content.ContextCompat
 import com.android.libsBase.widget.ShapeView
 
 /**
- * Created by  on 2019-05-10.
- *
- */
-/**
  * 设置颜色直接使用colors.xml中定义的颜色即可
  */
 fun TextView.setColor(resId: Int) {

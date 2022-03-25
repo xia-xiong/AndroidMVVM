@@ -10,7 +10,6 @@ import android.graphics.drawable.Drawable
 import android.graphics.drawable.GradientDrawable
 import android.graphics.drawable.RippleDrawable
 import android.graphics.drawable.StateListDrawable
-import android.os.Build
 import android.util.AttributeSet
 import android.util.TypedValue
 import android.view.Gravity
@@ -134,7 +133,7 @@ class ShapeView @JvmOverloads constructor(
         }
     }
 
-    @SuppressLint("NewApi")
+    @SuppressLint("NewApi", "DrawAllocation")
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec)
         // 初始化normal状态
@@ -176,34 +175,7 @@ class ShapeView @JvmOverloads constructor(
         }
         // 是否开启点击动效
         background = if (mActiveEnabled) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                RippleDrawable(ColorStateList.valueOf(mPressedColor), normalGradientDrawable, null)
-            }
-            // 5.0以下变色效果
-            else {
-                // 初始化pressed状态
-                with(pressedGradientDrawable) {
-                    setColor(mPressedColor)
-                    when (mShapeMode) {
-                        0 -> shape = GradientDrawable.RECTANGLE
-                        1 -> shape = GradientDrawable.OVAL
-                        2 -> shape = GradientDrawable.LINE
-                        3 -> shape = GradientDrawable.RING
-                    }
-                    cornerRadius = TypedValue.applyDimension(
-                        TypedValue.COMPLEX_UNIT_PX,
-                        mCornerRadius.toFloat(),
-                        resources.displayMetrics
-                    )
-                    setStroke(mStrokeWidth, mStrokeColor)
-                }
-                // 注意此处的add顺序，normal必须在最后一个，否则其他状态无效
-                // 设置pressed状态
-                stateListDrawable.apply {
-                    addState(intArrayOf(android.R.attr.state_pressed), pressedGradientDrawable)
-                    addState(intArrayOf(), normalGradientDrawable)
-                }
-            }
+            RippleDrawable(ColorStateList.valueOf(mPressedColor), normalGradientDrawable, null)
         } else {
             normalGradientDrawable
         }
@@ -292,22 +264,6 @@ class ShapeView @JvmOverloads constructor(
      * 所以这里需要针对5.0以下系统单独处理View中的getContext返回值
      */
     private fun changeTintContextWrapperToActivity() {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
-            getActivity()?.let {
-                var clazz: Class<*>? = this::class.java
-                while (clazz != null) {
-                    try {
-                        val field = clazz.getDeclaredField("mContext")
-                        field.isAccessible = true
-                        field.set(this, it)
-                        break
-                    } catch (e: Exception) {
-                        e.printStackTrace()
-                    }
-                    clazz = clazz.superclass
-                }
-            }
-        }
     }
 
     /**
@@ -358,18 +314,18 @@ class ShapeView @JvmOverloads constructor(
         return flagSet or flag == flagSet
     }
 
-    fun setSv_fillColor(color: Int) {
+    fun setSvFillColor(color: Int) {
         this.mFillColor = color
         requestLayout()
     }
 
-    fun setSv_strokeColor(color: Int) {
+    fun setSvStrokeColor(color: Int) {
         this.mStrokeColor = color
         requestLayout()
     }
 
 
-    fun setSv_radius(radius:Int) {
+    fun setSvRadius(radius:Int) {
         this.mCornerRadius = radius
         requestLayout()
     }

@@ -91,4 +91,7 @@
         <attr name="circle_dot_color" format="color" />
         <attr name="circle_dot_radius" format="dimension" />
     </declare-styleable>
+    <declare-styleable name="SendCodeTextView">
+        <attr name="resendTime" format="integer" />
+    </declare-styleable>
 </resources>

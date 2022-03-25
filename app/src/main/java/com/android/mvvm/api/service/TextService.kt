@@ -8,7 +8,7 @@ import retrofit2.http.GET
 
 interface TextService {
     @GET("/yly-front/v1/specialTopic/getSpecialTopickeyList")
-    fun getServiceTime(): Deferred<BaseResultBean<MutableList<EntryKeyList>>>
+    fun getServiceTimeAsync(): Deferred<BaseResultBean<MutableList<EntryKeyList>>>
 
 
 }

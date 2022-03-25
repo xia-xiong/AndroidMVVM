@@ -13,7 +13,7 @@ class MainViewModel :AbstractViewModel<AbstractViewModel.Navigator>(){
 
     fun getSplashData() {
         request({
-            AuctionService.getServiceTime()
+            AuctionService.getServiceTimeAsync()
         }, {
         }, {
         }, isShowDialog=true)

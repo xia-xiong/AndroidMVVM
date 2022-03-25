@@ -3,11 +3,11 @@
 package com.android.libsBase.ext
 
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.app.Fragment
 import android.content.Intent
 import android.os.BaseBundle
-import android.os.Build
 import android.os.Bundle
 import android.os.Parcelable
 import com.android.libsBase.ext.IntentFieldMethod.internalMap
@@ -163,9 +163,10 @@ inline fun <T, R> T.runSafely(block: (T) -> R) = try {
     null
 }
 
+@SuppressLint("DiscouragedPrivateApi")
 internal object IntentFieldMethod {
     private val bundleClass =
-        (if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) BaseBundle::class else Bundle::class).java
+        (BaseBundle::class).java
 
     private val mExtras: Field? by lazy {
         Intent::class.java.getDeclaredField("mExtras").also { it.isAccessible = true }

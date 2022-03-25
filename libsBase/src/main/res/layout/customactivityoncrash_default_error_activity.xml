@@ -15,10 +15,10 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:orientation="vertical"
-            android:paddingBottom="@dimen/customactivityoncrash_activity_vertical_margin"
-            android:paddingLeft="@dimen/customactivityoncrash_activity_horizontal_margin"
-            android:paddingRight="@dimen/customactivityoncrash_activity_horizontal_margin"
-            android:paddingTop="@dimen/customactivityoncrash_activity_vertical_margin">
+            android:paddingBottom="@dimen/crash_activity_vertical_margin"
+            android:paddingLeft="@dimen/crash_activity_horizontal_margin"
+            android:paddingRight="@dimen/crash_activity_horizontal_margin"
+            android:paddingTop="@dimen/crash_activity_vertical_margin">
 
             <ImageView
                 android:id="@+id/customactivityoncrash_error_activity_image"
@@ -30,25 +30,25 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/customactivityoncrash_activity_vertical_margin"
+                android:layout_marginTop="@dimen/crash_activity_vertical_margin"
                 android:gravity="center"
-                android:text="@string/customactivityoncrash_error_activity_error_occurred_explanation"
-                android:textSize="18dp"
+                android:text="@string/crash_error_activity_error_occurred_explanation"
+                android:textSize="@dimen/sp_18"
                 android:textStyle="bold" />
 
             <Button
                 android:id="@+id/customactivityoncrash_error_activity_restart_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/customactivityoncrash_activity_vertical_margin"
-                android:text="@string/customactivityoncrash_error_activity_close_app" />
+                android:layout_marginTop="@dimen/crash_activity_vertical_margin"
+                android:text="@string/crash_error_activity_close_app" />
 
             <Button
                 android:id="@+id/customactivityoncrash_error_activity_more_info_button"
                 style="?borderlessButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/customactivityoncrash_error_activity_error_details"
+                android:text="@string/crash_error_activity_error_details"
                 android:textColor="?colorPrimary" />
         </LinearLayout>
     </ScrollView>

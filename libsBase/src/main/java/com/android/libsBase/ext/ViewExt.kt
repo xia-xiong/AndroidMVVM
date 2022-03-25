@@ -1,4 +1,4 @@
-package com.live.common.extension
+package com.android.libsBase.ext
 
 import android.graphics.Bitmap
 import android.graphics.Canvas
@@ -27,18 +27,6 @@ fun ViewGroup.inflate(layoutResId: Int): View =
 
 fun View.getTextView(resId: Int): TextView = findViewById(resId)
 
-fun TabLayout.setPromotionTab(titles: Array<String>) {
-    for ((index, title) in titles.withIndex()) {
-        val view = inflate(R.layout.layout_tab_promotion)
-        val tvTitle = view.getTextView(R.id.tv_tab_name)
-        tvTitle.text = title
-        if (index == 0) {
-            tvTitle.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 16f)
-            tvTitle.typeface = Typeface.defaultFromStyle(Typeface.BOLD)
-        }
-        addTab(newTab().setCustomView(view))
-    }
-}
 
 fun TabLayout.setTab(titles: Array<String>) {
     for ((index, title) in titles.withIndex()) {
@@ -61,9 +49,7 @@ fun TabLayout.setCustomTab(titles: Array<String>) {
         val indicator = view.findViewById<ImageView>(R.id.image)
         tvTitle.text = title
         tvTitle.setTextColor(tabTextColors)
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            indicator.imageTintList = tabIconTint
-        }
+        indicator.imageTintList = tabIconTint
         if (index == 0) {
             tvTitle.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 16f)
             tvTitle.typeface = Typeface.defaultFromStyle(Typeface.BOLD)
@@ -79,9 +65,7 @@ fun TabLayout.setCustomTab(titles: Array<String>, width: Int) {
         val indicator = view.findViewById<ImageView>(R.id.image)
         tvTitle.text = title
         tvTitle.setTextColor(tabTextColors)
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            indicator.imageTintList = tabIconTint
-        }
+        indicator.imageTintList = tabIconTint
         if (index == 0) {
             tvTitle.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 16f)
             tvTitle.typeface = Typeface.defaultFromStyle(Typeface.BOLD)
@@ -160,7 +144,7 @@ var View.leftMargin: Int
 /**
  * View 转 bitmap
  */
-fun View.view2Bitmap(): Bitmap {
+fun View.viewBitmap(): Bitmap {
     var ret = Bitmap.createBitmap(this.width, this.height, Bitmap.Config.ARGB_8888)
     var canvas = Canvas(ret)
     var bgDrawable = this.background

@@ -133,7 +133,7 @@ class ShapeConstraintLayout @JvmOverloads constructor(
         background = mGradientDrawable
 
         // 5.0以上设置阴影
-        if (mWithElevation && Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+        if (mWithElevation) {
             elevation = DEFAULT_ELEVATION
         }
     }
@@ -167,7 +167,7 @@ class ShapeConstraintLayout @JvmOverloads constructor(
         return flagSet or flag == flagSet
     }
 
-    fun setSvg_fillColor(color: Int) {
+    fun setSvgFillColor(color: Int) {
         this.mFillColor = color
         requestLayout()
     }

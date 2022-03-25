@@ -25,7 +25,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 
-public class CaocInitProvider extends ContentProvider {
+public class CrashInitProvider extends ContentProvider {
 
     public boolean onCreate() {
         CustomActivityOnCrash.install(getContext());

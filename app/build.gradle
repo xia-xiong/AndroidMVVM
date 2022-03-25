@@ -1,15 +1,9 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
-    id 'kotlin-kapt'
 }
 apply plugin: 'kotlin-android-extensions'
 apply from: "$project.rootDir/basic.gradle"
-kapt {
-    arguments {
-        arg("AROUTER_MODULE_NAME", project.getName())
-    }
-}
 
 
 android {
@@ -53,6 +47,4 @@ android {
 
 dependencies {
     implementation project(':libsBase')
-//    api 'com.alibaba:arouter-api:1.5.0'
-//    kapt 'com.alibaba:arouter-compiler:1.2.2'
 }

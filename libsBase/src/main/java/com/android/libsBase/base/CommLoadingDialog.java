@@ -1,5 +1,6 @@
 package com.android.libsBase.base;
 
+import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Context;
 import android.graphics.drawable.ColorDrawable;
@@ -12,15 +13,13 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 
 import com.android.libsBase.R;
-import com.android.libsBase.utils.StringUtils;
 
 import org.jetbrains.annotations.NotNull;
 
 /**
- *
+ *loading
  */
 public class CommLoadingDialog extends Dialog {
-    private String title;
     public CommLoadingDialog(@NonNull Context context) {
         super(context,R.style.dialog);
     }
@@ -32,7 +31,7 @@ public class CommLoadingDialog extends Dialog {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setBackgroundDrawable(new ColorDrawable(0));
         setCanceledOnTouchOutside(false);
-        View rootView = LayoutInflater.from(getContext()).inflate(R.layout.dialog_loading_view, null);
+        @SuppressLint("InflateParams") View rootView = LayoutInflater.from(getContext()).inflate(R.layout.dialog_loading_view, null);
         titleView= rootView.findViewById(R.id.title);
         setContentView(rootView);
     }
@@ -43,7 +42,7 @@ public class CommLoadingDialog extends Dialog {
     }
 
     public void setMessage(@NotNull String mContent) {
-        if(StringUtils.isNotBlank(title)&&titleView!=null) {
+        if(titleView!=null) {
             titleView.setText(mContent);
         }
     }

@@ -2,12 +2,12 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="44dp">
+    android:layout_height="@dimen/dp_44">
 
     <ImageView
         android:id="@+id/ivHot"
-        android:layout_width="10dp"
-        android:layout_height="12dp"
+        android:layout_width="@dimen/dp_10"
+        android:layout_height="@dimen/dp_12"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="@+id/tv_tab_name"
         app:layout_constraintEnd_toStartOf="@+id/tv_tab_name"
@@ -15,8 +15,8 @@
 
     <ImageView
         android:id="@+id/image"
-        android:layout_width="20dp"
-        android:layout_height="3dp"
+        android:layout_width="@dimen/sp_20"
+        android:layout_height="@dimen/dp_3"
         android:scaleType="fitXY"
         android:src="@drawable/tab_sel"
         app:layout_constraintEnd_toEndOf="@+id/tv_tab_name"
@@ -26,12 +26,11 @@
     <TextView
         android:id="@+id/tv_tab_name"
         android:layout_width="wrap_content"
-        android:layout_height="39dp"
+        android:layout_height="@dimen/dp_39"
         android:gravity="center"
         android:singleLine="true"
         android:textColor="@color/tab_color"
-        android:textSize="13dp"
-        android:text="关注"
+        android:textSize="@dimen/sp_14"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

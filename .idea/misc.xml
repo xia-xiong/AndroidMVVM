@@ -3,12 +3,31 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/xia/old/AndroidMVVM/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
+        <entry key="..\:/xia/old/AndroidMVVM/app/src/main/res/drawable/splash_bg.xml" value="0.1" />
         <entry key="..\:/xia/old/AndroidMVVM/app/src/main/res/layout/activity_login.xml" value="0.1" />
         <entry key="..\:/xia/old/AndroidMVVM/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/xia/old/AndroidMVVM/app/src/main/res/layout/activity_splash.xml" value="0.14130434782608695" />
+        <entry key="..\:/xia/old/AndroidMVVM/libsBase/src/main/res/drawable/bg_black_radius_8dp.xml" value="0.1" />
+        <entry key="..\:/xia/old/AndroidMVVM/libsBase/src/main/res/drawable/bg_code_black.xml" value="0.1" />
+        <entry key="..\:/xia/old/AndroidMVVM/libsBase/src/main/res/drawable/bg_code_cyan.xml" value="0.1" />
+        <entry key="..\:/xia/old/AndroidMVVM/libsBase/src/main/res/drawable/bnv_item_color_state.xml" value="0.1" />
+        <entry key="..\:/xia/old/AndroidMVVM/libsBase/src/main/res/drawable/circle_ring_white.xml" value="0.1" />
+        <entry key="..\:/xia/old/AndroidMVVM/libsBase/src/main/res/drawable/progressbar.xml" value="0.1" />
+        <entry key="..\:/xia/old/AndroidMVVM/libsBase/src/main/res/drawable/rectangle_stroke_gray.xml" value="0.1" />
+        <entry key="..\:/xia/old/AndroidMVVM/libsBase/src/main/res/drawable/shape_dialog_bg.xml" value="0.1" />
+        <entry key="..\:/xia/old/AndroidMVVM/libsBase/src/main/res/drawable/shape_divider.xml" value="0.1" />
+        <entry key="..\:/xia/old/AndroidMVVM/libsBase/src/main/res/drawable/tab_sel.xml" value="0.1" />
+        <entry key="..\:/xia/old/AndroidMVVM/libsBase/src/main/res/layout/customactivityoncrash_default_error_activity.xml" value="0.11005434782608696" />
         <entry key="..\:/xia/old/AndroidMVVM/libsBase/src/main/res/layout/dialog_loading_view.xml" value="0.14130434782608695" />
+        <entry key="..\:/xia/old/AndroidMVVM/libsBase/src/main/res/layout/layout_gray_line.xml" value="0.11005434782608696" />
+        <entry key="..\:/xia/old/AndroidMVVM/libsBase/src/main/res/layout/layout_home_tab_title.xml" value="0.11005434782608696" />
+        <entry key="..\:/xia/old/AndroidMVVM/libsBase/src/main/res/layout/layout_tab.xml" value="0.11005434782608696" />
+        <entry key="..\:/xia/old/AndroidMVVM/libsBase/src/main/res/layout/layout_tab_promotion.xml" value="0.11005434782608696" />
+        <entry key="..\:/xia/old/AndroidMVVM/libsBase/src/main/res/layout/layout_tab_title.xml" value="0.11005434782608696" />
         <entry key="..\:/xia/old/AndroidMVVM/libsBase/src/main/res/layout/loading.xml" value="0.14130434782608695" />
         <entry key="..\:/xia/old/AndroidMVVM/libsBase/src/main/res/layout/title_bar_layout.xml" value="0.14130434782608695" />
+        <entry key="..\:/xia/old/AndroidMVVM/libsBase/src/main/res/menu/bottom_navigation_main.xml" value="0.1" />
       </map>
     </option>
   </component>

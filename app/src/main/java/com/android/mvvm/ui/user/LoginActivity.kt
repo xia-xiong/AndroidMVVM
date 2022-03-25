@@ -6,9 +6,9 @@ import com.android.mvvm.R
 import com.android.mvvm.databinding.ActivityLoginBinding
 import com.android.mvvm.utils.EditTextHelper
 //import com.blankj.utilcode.util.KeyboardUtils
-import com.live.common.extension.gone
-import com.live.common.extension.setSingleClickListener
-import com.live.common.extension.visible
+import com.android.libsBase.ext.gone
+import com.android.libsBase.ext.setSingleClickListener
+import com.android.libsBase.ext.visible
 import kotlinx.android.synthetic.main.activity_login.*
 
 /**

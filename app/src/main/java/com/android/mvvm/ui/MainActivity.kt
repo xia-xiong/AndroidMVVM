@@ -1,6 +1,5 @@
 package com.android.mvvm.ui
 
-import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.fragment.app.Fragment
 import com.android.mvvm.databinding.ActivityMainBinding
@@ -18,9 +17,7 @@ class MainActivity : AbstractActivity<ActivityMainBinding>() {
     private val mModel: MainViewModel by viewModels()
     private var lastPos = 0
     override fun getLayoutId() = R.layout.activity_main
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
+
     override fun init() {
         mModel.navigator = this
         switchFragment(0)

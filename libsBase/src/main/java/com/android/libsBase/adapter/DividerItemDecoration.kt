@@ -7,6 +7,7 @@ import android.graphics.Rect
 import android.graphics.drawable.Drawable
 import android.view.View
 import androidx.annotation.NonNull
+import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.android.libsBase.R
@@ -22,7 +23,7 @@ interface DrawDividerAdapter {
 
 class DividerItemDecoration(context: Context) : RecyclerView.ItemDecoration() {
 
-    private var mDivider: Drawable? = context.resources.getDrawable(R.drawable.shape_divider)
+    private var mDivider: Drawable? =  ContextCompat.getDrawable(context,R.drawable.shape_divider)
     private var mDividerHeight: Int = mDivider?.intrinsicHeight ?: 0
     private val mPadding = Point(-1, -1)
     private val mTempPoint = Point(-1, -1)
@@ -45,7 +46,6 @@ class DividerItemDecoration(context: Context) : RecyclerView.ItemDecoration() {
             if (!shouldDrawDividerBelow(view, parent)) {
                 continue
             }
-            val top: Int
             val left: Int
             val right: Int
             if (isValid(mPadding)) {
@@ -60,7 +60,7 @@ class DividerItemDecoration(context: Context) : RecyclerView.ItemDecoration() {
                     right = view.paddingRight
                 }
             }
-            top = ViewCompat.getY(view).toInt() + view.height
+            val top: Int = view.y.toInt() + view.height
             this.mDivider?.setBounds(left, top, width - right, top + this.mDividerHeight)
             this.mDivider?.draw(c)
         }

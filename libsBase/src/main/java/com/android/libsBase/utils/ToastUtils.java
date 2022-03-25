@@ -34,7 +34,7 @@ public final class ToastUtils {
     private static int bgResource = -1;
     private static int messageColor = DEFAULT_COLOR;
     private static WeakReference<View> sViewWeakReference;
-    private static Handler sHandler = new Handler(Looper.getMainLooper());
+    private static final Handler sHandler = new Handler(Looper.getMainLooper());
 
     private ToastUtils() {
         throw new UnsupportedOperationException("u can't instantiate me...");
@@ -152,12 +152,7 @@ public final class ToastUtils {
      * @param args  参数
      */
     public static void showShortSafe(final @StringRes int resId, final Object... args) {
-        sHandler.post(new Runnable() {
-            @Override
-            public void run() {
-                show(resId, Toast.LENGTH_SHORT, args);
-            }
-        });
+        sHandler.post(() -> show(resId, Toast.LENGTH_SHORT, args));
     }
 
     /**
@@ -210,12 +205,7 @@ public final class ToastUtils {
      * @param args  参数
      */
     public static void showLongSafe(final @StringRes int resId, final Object... args) {
-        sHandler.post(new Runnable() {
-            @Override
-            public void run() {
-                show(resId, Toast.LENGTH_LONG, args);
-            }
-        });
+        sHandler.post(() -> show(resId, Toast.LENGTH_LONG, args));
     }
 
     /**
@@ -325,12 +315,7 @@ public final class ToastUtils {
      * 安全地显示长时自定义吐司
      */
     public static void showCustomLongSafe() {
-        sHandler.post(new Runnable() {
-            @Override
-            public void run() {
-                show("", Toast.LENGTH_LONG);
-            }
-        });
+        sHandler.post(() -> show("", Toast.LENGTH_LONG));
     }
 
     /**

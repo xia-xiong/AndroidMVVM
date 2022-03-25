@@ -5,27 +5,27 @@
         android:id="@+id/action_home"
         android:enabled="true"
         android:icon="@drawable/ic_home_doctor"
-        android:title="首页"
+        android:title="@string/home"
         app:showAsAction="ifRoom" />
-<!--    <item
-        android:id="@+id/action_recommend"
-        android:enabled="true"
-        android:icon="@drawable/ic_home_doctor"
-        android:title="首页2"
-        app:showAsAction="ifRoom" />
+    <!--    <item
+            android:id="@+id/action_recommend"
+            android:enabled="true"
+            android:icon="@drawable/ic_home_doctor"
+            android:title="首页2"
+            app:showAsAction="ifRoom" />
 
-    <item
-        android:id="@+id/action_archive"
-        android:enabled="true"
-        android:icon="@drawable/ic_home_doctor"
-        android:title="首页3"
-        app:showAsAction="ifRoom" />-->
+        <item
+            android:id="@+id/action_archive"
+            android:enabled="true"
+            android:icon="@drawable/ic_home_doctor"
+            android:title="首页3"
+            app:showAsAction="ifRoom" />-->
 
     <item
         android:id="@+id/action_mine"
         android:enabled="true"
         android:icon="@drawable/ic_home_doctor"
-        android:title="我的"
+        android:title="@string/mine"
         app:showAsAction="ifRoom" />
 
 </menu>

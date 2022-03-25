@@ -2,25 +2,22 @@ package com.android.libsBase.adapter
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentStatePagerAdapter
-
-/**
- * Created by  on 2019/4/24.
- *
- */
-class ViewPagerAdapter(fm: FragmentManager, private var categories: List<SubCategory>) :
-        FragmentStatePagerAdapter(fm) {
+import androidx.lifecycle.Lifecycle
+import androidx.viewpager2.adapter.FragmentStateAdapter
 
 
-    override fun getItem(position: Int): Fragment {
-        return categories[position].fragment!!
-    }
+class ViewPagerAdapter(
+    fm: FragmentManager,
+    lifecycle: Lifecycle,
+    private var categories: List<SubCategory>
+) :
+    FragmentStateAdapter(fm, lifecycle) {
 
-    override fun getCount(): Int {
+    override fun getItemCount(): Int {
         return categories.size
     }
 
-    override fun getPageTitle(position: Int): CharSequence? {
-        return categories[position].title
+    override fun createFragment(position: Int): Fragment {
+        return categories[position].fragment
     }
 }
